@@ -763,6 +763,7 @@ window.abrirModalGestionCaducada = function(objEncoded) {
     document.getElementById('gestion-cliente-txt').innerText = prod.usuario_comprador || 'Sin Cliente';
     document.getElementById('gestion-cliente-txt').title = prod.cuenta || '';
     document.getElementById('gestion-cliente-txt').style.cursor = 'help';
+    document.getElementById('gestion-cliente-txt').innerHTML = `${prod.usuario_comprador || 'Sin Cliente'}<br><span style="font-size:0.7rem; color:#64748b; font-family:monospace; font-weight:normal;">${prod.cuenta || ''}</span>`;
     document.getElementById('gestion-credenciales').value = prod.cuenta; 
 
     document.getElementById('form-gestion-caducada').style.display = 'none';
