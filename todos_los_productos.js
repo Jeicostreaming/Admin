@@ -760,7 +760,6 @@ window.abrirModalGestionCaducada = function(objEncoded) {
     const prod = JSON.parse(decodeURIComponent(objEncoded));
     document.getElementById('gestion-id-old').value = prod.id;
     document.getElementById('gestion-servicio-txt').innerText = prod.servicio_nombre;
-    document.getElementById('gestion-cliente-txt').innerText = prod.usuario_comprador || 'Sin Cliente';
     document.getElementById('gestion-cliente-txt').title = prod.cuenta || '';
     document.getElementById('gestion-cliente-txt').style.cursor = 'help';
     document.getElementById('gestion-cliente-txt').innerHTML = `${prod.usuario_comprador || 'Sin Cliente'}<br><span style="font-size:0.7rem; color:#64748b; font-family:monospace; font-weight:normal;">${prod.cuenta || ''}</span>`;
