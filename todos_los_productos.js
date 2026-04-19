@@ -763,10 +763,9 @@ window.abrirModalGestionCaducada = function(objEncoded) {
     document.getElementById('gestion-cliente-txt').title = prod.cuenta || '';
     document.getElementById('gestion-cliente-txt').style.cursor = 'help';
     document.getElementById('gestion-cliente-txt').innerHTML = `${prod.usuario_comprador || 'Sin Cliente'}<br><span style="font-size:0.7rem; color:#64748b; font-family:monospace; font-weight:normal;">${prod.cuenta || ''}</span>`;
-    document.getElementById('gestion-credenciales').value = prod.cuenta; 
-
     document.getElementById('form-gestion-caducada').style.display = 'none';
     document.getElementById('form-gestion-caducada').reset();
+    document.getElementById('gestion-credenciales').value = prod.cuenta;
     document.querySelectorAll('[id^="btn-tab-"]').forEach(b => {
         b.style.boxShadow = 'none'; b.style.transform = 'scale(1)'; b.style.filter = 'grayscale(0%)';
     });
