@@ -294,10 +294,16 @@ async function subirImagenADrive(file) {
                     });
                     
                     const resultText = await response.text();
-                    const result = JSON.parse(resultText); 
-                    
-                    if(result.success) resolve(result.url); 
-                    else reject(result.error);
+                    try {
+                        // 🔥 Limpieza: Extrae solo lo que está entre llaves { }
+                        const cleanJson = resultText.substring(resultText.indexOf('{'), resultText.lastIndexOf('}') + 1);
+                        const result = JSON.parse(cleanJson);
+                        if(result.success) resolve(result.url); 
+                        else reject(result.error);
+                    } catch(e) {
+                        console.error("Texto raro de Google:", resultText);
+                        reject("Error leyendo la respuesta de Google Drive.");
+                    }
                 } catch(err) {
                     console.error("Error en Fetch Drive:", err);
                     reject("Error de conexión al subir imagen a Drive.");
