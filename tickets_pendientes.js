@@ -167,7 +167,10 @@ async function cargarTicketsPendientes() {
             body: JSON.stringify(payload)
         });
 
-        const res = await response.json();
+        const responseText = await response.text();
+        // 🔥 Limpieza PHP: Ignora warnings y agarra solo el JSON
+        const cleanPhpJson = responseText.substring(responseText.indexOf('{'), responseText.lastIndexOf('}') + 1);
+        const res = JSON.parse(cleanPhpJson);
 
         if (res.success) {
             // Guardamos los tickets en la memoria global del script
