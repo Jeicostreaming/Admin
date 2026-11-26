@@ -53,35 +53,45 @@
     <div id="dashboard-section" style="display:none">
         
         <nav id="sidebar" class="active">
-            <div class="logo" style="display:flex;flex-direction:column;justify-content:center">
-                <h2 style="font-family:Righteous,cursive;text-transform:uppercase;margin:0">Mi Tienda</h2>
-                <span style="color:var(--text-muted);font-size:.7rem;font-weight:800;letter-spacing:1.5px;margin-top:4px;text-align:center">v.1.2.1</span>
+            <div class="logo">
+                <div class="brand-emblem">
+                    <i class="material-icons-round">bolt</i>
+                </div>
+                <div class="brand-info">
+                    <h2>Mi Tienda</h2>
+                    <span class="brand-version-pill">ADMIN v1.8</span>
+                </div>
             </div>
 
-            <button class="nav-btn" id="btn-toggle-desktop">
-                <i class="material-icons-round">menu_open</i> 
-                <span class="menu-text">Ocultar Menú</span>
-            </button>
+            <div class="sidebar-collapse-wrap">
+                <button class="nav-btn sidebar-collapse-btn" id="btn-toggle-desktop" title="Contraer o expandir menú" aria-label="Alternar menú lateral">
+                    <i class="material-icons-round">menu_open</i> 
+                    <span class="menu-text">Contraer menú</span>
+                </button>
+            </div>
 
             <ul id="menu-list">
+                <li class="nav-section-label"><span>Principal</span></li>
                 <li>
-                    <button class="nav-btn active" data-target="mod-inicio" data-title="Inicio">
+                    <button class="nav-btn active" data-target="mod-inicio" data-title="Inicio" title="Inicio">
                         <i class="material-icons-round">home</i> 
                         <span class="menu-text">Inicio</span>
                     </button>
                 </li>
 
                 <li>
-                    <button class="nav-btn" data-target="mod-recomendaciones" data-title="Recomendaciones">
+                    <button class="nav-btn" data-target="mod-recomendaciones" data-title="Recomendaciones" title="Recomendaciones">
                         <i class="material-icons-round">star</i> 
                         <span class="menu-text">Recomendaciones</span>
                     </button>
                 </li>
 
+                <li class="nav-section-label"><span>Operación</span></li>
                 <li>
-                    <button class="nav-btn" data-toggle="sub-productos">
+                    <button class="nav-btn" data-toggle="sub-productos" title="Productos">
                         <i class="material-icons-round">inventory_2</i> 
                         <span class="menu-text">Productos</span>
+                        <span class="material-icons-round nav-chevron">expand_more</span>
                     </button>
                     <ul class="submenu" id="sub-productos">
                         <li><button class="nav-btn" data-target="mod-productos-agregar" data-title="Agregar Productos">Agregar Productos</button></li>
@@ -91,23 +101,25 @@
                 </li>
 
                 <li>
-                    <button class="nav-btn" data-target="mod-tokens" data-title="Sistema de Tokens">
+                    <button class="nav-btn" data-target="mod-tokens" data-title="Sistema de Tokens" title="Tokens">
                         <i class="material-icons-round">toll</i> 
                         <span class="menu-text">Tokens</span>
                     </button>
                 </li>
                 
                 <li>
-                    <button class="nav-btn" data-target="mod-usuarios-editar" data-title="Usuarios">
+                    <button class="nav-btn" data-target="mod-usuarios-editar" data-title="Usuarios" title="Usuarios">
                         <i class="material-icons-round">group</i> 
                         <span class="menu-text">Usuarios</span>
                     </button>
                 </li>
 
+                <li class="nav-section-label"><span>Métricas y Soporte</span></li>
                 <li>
-                    <button class="nav-btn" data-toggle="sub-analisis">
+                    <button class="nav-btn" data-toggle="sub-analisis" title="Análisis">
                         <i class="material-icons-round">analytics</i> 
                         <span class="menu-text">Análisis</span>
+                        <span class="material-icons-round nav-chevron">expand_more</span>
                     </button>
                     <ul class="submenu" id="sub-analisis">
                         <li><button class="nav-btn" data-target="mod-analisis-volumen" data-title="Volumen de ventas">Volumen de ventas</button></li>
@@ -117,19 +129,18 @@
                 </li>
 
                 <li>
-                    <button class="nav-btn" data-target="mod-ranking" data-title="Ranking de Clientes">
+                    <button class="nav-btn" data-target="mod-ranking" data-title="Ranking de Clientes" title="Ranking">
                         <i class="material-icons-round">leaderboard</i> 
                         <span class="menu-text">Ranking</span>
                     </button>
                 </li>
 
                 <li>
-                    <button class="nav-btn" data-toggle="sub-tickets" style="display:flex;justify-content:space-between;align-items:center;width:100%">
-                        <div style="display:flex;align-items:center">
-                            <i class="material-icons-round">confirmation_number</i> 
-                            <span class="menu-text" style="margin-left:8px">Tickets</span>
-                        </div>
+                    <button class="nav-btn" data-toggle="sub-tickets" title="Tickets">
+                        <i class="material-icons-round">confirmation_number</i> 
+                        <span class="menu-text">Tickets</span>
                         <span id="global-badge-tickets" style="display:none"></span>
+                        <span class="material-icons-round nav-chevron">expand_more</span>
                     </button>
                     <ul class="submenu" id="sub-tickets">
                         <li>
@@ -144,8 +155,9 @@
             </ul>
 
             <div class="theme-switch-wrapper">
-                <span class="theme-text menu-text" style="color:var(--text-gray);font-weight:700;font-size:.85rem;display:flex;align-items:center;gap:8px">
-                    <i class="material-icons-round" style="font-size:1.2rem">dark_mode</i> Modo Oscuro
+                <span class="theme-text menu-text">
+                    <i class="material-icons-round" style="font-size:1.15rem">dark_mode</i>
+                    <span>Modo Oscuro</span>
                 </span>
                 <label class="theme-switch">
                     <input type="checkbox" id="checkbox-theme-toggle">
@@ -157,8 +169,12 @@
 
         <header>
             <div style="display:flex;align-items:center;gap:15px">
-                <button id="btn-toggle-menu" style="background:0 0;border:none;color:var(--text-main);cursor:pointer;padding:5px">
-                    <i class="material-icons-round" style="font-size:2rem">menu</i>
+                <button id="btn-toggle-menu" type="button" aria-label="Abrir o cerrar menú" title="Menú">
+                    <span class="hb-lines" aria-hidden="true">
+                        <span class="hb-line"></span>
+                        <span class="hb-line"></span>
+                        <span class="hb-line"></span>
+                    </span>
                 </button>
 
                 <h1 id="page-title" style="margin:0">Inicio</h1>
@@ -226,6 +242,6 @@
         <div class="modal-content ticket-box" id="modal-general-content"></div>
     </div>
 
-      <script src="app.min.js?v=1795707232615"></script>
+      <script src="app.min.js?v=1795726692123"></script>
 </body>
 </html>
